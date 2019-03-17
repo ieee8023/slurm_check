@@ -17,3 +17,10 @@ class TorchTests(unittest.TestCase):
         import torchvision
         model = torchvision.models.densenet121(pretrained=True)
         test = model(torch.zeros(1,3,224,244))
+        
+    def test_torch_pretrained_cuda(self):
+        import torch
+        import torchvision
+        model = torchvision.models.densenet121(pretrained=True)
+        model = model.cuda()
+        test = model(torch.zeros(1,3,224,244).cuda())

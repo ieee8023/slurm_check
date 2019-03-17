@@ -2,7 +2,7 @@
 
 name=`hostname | cut -d"." -f1`
 
-pytest
+timeout -s KILL 20 pytest
 
 rc=$?
 echo "Exit code is $?"
@@ -11,5 +11,5 @@ if  [[ $rc == 0 ]]; then
     echo $name >> machines_passed.txt
 else
     echo "Command failed"
-    echo $name >> machines_failed.txt
+    echo $name EC:$rc >> machines_failed.txt
 fi
