@@ -2,7 +2,7 @@
 
 name=`hostname | cut -d"." -f1`
 
-timeout -s KILL 20 pytest
+timeout -s KILL 45 pytest
 
 rc=$?
 echo "Exit code is $?"
